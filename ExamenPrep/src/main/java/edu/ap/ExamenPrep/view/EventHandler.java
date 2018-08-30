@@ -33,4 +33,9 @@ public class EventHandler {
 
     }
 
+    public void whenDeleteButtonClicked(ActionEvent actionEvent){
+        String title = ui.getTFTitle().getText();
+        bookRecommender.DeleteBook(title);
+    }
+
 }

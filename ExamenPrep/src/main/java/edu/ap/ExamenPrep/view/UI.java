@@ -38,7 +38,8 @@ public class UI implements InitializingBean {
         DCategory = new JComboBox(BookCategory.values());
         BAddBook = new JButton("Add Book");
         BAddBook.addActionListener(eventHandler::whenAddButtonClicked);
-        BDeleteBook = new JButton("Delete Book");
+        BDeleteBook = new JButton("Delete Book by Title");
+        BDeleteBook.addActionListener(eventHandler::whenDeleteButtonClicked);
 
         jPanelMain.add(LTitle);
         jPanelMain.add(TFTitle);

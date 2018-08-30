@@ -29,8 +29,8 @@ public class BookRecommender {
         repository.save(new Book(title, author,category));
     }
 
-    public void DeleteBook(Book book){
-        repository.delete(book);
+    public void DeleteBook(String title){
+        repository.deleteBookByTitle(title);
     }
 
     public Book RecommendBook(BookCategory category){
