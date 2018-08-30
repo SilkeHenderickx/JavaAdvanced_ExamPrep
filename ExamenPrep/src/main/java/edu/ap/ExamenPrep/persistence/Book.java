@@ -21,12 +21,12 @@ public class Book {
     private Integer onHold;
 
     @Column(name = "bookCategory")
-    private BookCategory bookCategory;
+    private String bookCategory;
 
     public Book(String title, String author, BookCategory bookCategory) {
         this.title = title;
         this.author = author;
-        this.bookCategory = bookCategory;
+        this.bookCategory = bookCategory.toString();
         this.onHold = 0;
     }
 
@@ -62,11 +62,22 @@ public class Book {
         this.onHold = onHold;
     }
 
-    public BookCategory getBookCategory() {
-        return bookCategory;
+    public String getBookCategory() {
+        return bookCategory.toString();
     }
 
     public void setBookCategory(BookCategory bookCategory) {
-        this.bookCategory = bookCategory;
+        this.bookCategory = bookCategory.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", onHold=" + onHold +
+                ", bookCategory=" + bookCategory +
+                '}';
     }
 }
