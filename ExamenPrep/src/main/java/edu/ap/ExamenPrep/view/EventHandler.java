@@ -32,13 +32,13 @@ public class EventHandler {
         String author = ui.getTFAuthor().getText();
         BookCategory category = (BookCategory)ui.getDCategory().getSelectedItem();
 
-        bookRecommender.AddBook(title, author, category);
+        bookRecommender.addBook(title, author, category);
 
     }
 
     public void whenDeleteButtonClicked(ActionEvent actionEvent){
         String title = ui.getTFTitle().getText();
-        bookRecommender.DeleteBook(title);
+        bookRecommender.deleteBook(title);
     }
 
     public void whenRecommendButtonClicked(ActionEvent actionEvent){
@@ -51,7 +51,7 @@ public class EventHandler {
         else if (ui.jRadioButtonNonFiction.isSelected()){
             category = BookCategory.NONFICTION;
         }
-        Book b = bookRecommender.RecommendBook(category);
+        Book b = bookRecommender.recommendBook(category);
 
         JOptionPane.showMessageDialog(null, b.toString(), "InfoBox: " + "We recommend reading:", JOptionPane.INFORMATION_MESSAGE);
 

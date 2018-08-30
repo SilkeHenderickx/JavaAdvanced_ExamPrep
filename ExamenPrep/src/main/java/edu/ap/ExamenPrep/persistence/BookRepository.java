@@ -12,7 +12,15 @@ public interface BookRepository extends CrudRepository<Book, Long>{
 
     Page<Book> findAllByOnHoldEquals(Integer onHold, Pageable pageable);
 
+    Page<Book> findAll(Pageable pageable);
+
     Page<Book> findAllByBookCategoryAndOnHoldEquals(BookCategory category, Integer onHold, Pageable pageable);
+
+    Page<Book> findAllByBookCategory(BookCategory category, Pageable pageable);
+
+    int countAllByOnHoldEquals(Integer onHold);
+
+    int countAllByBookCategoryAndOnHoldEquals(BookCategory category, Integer onHold);
 
     int countAllByBookCategory(BookCategory category);
 
