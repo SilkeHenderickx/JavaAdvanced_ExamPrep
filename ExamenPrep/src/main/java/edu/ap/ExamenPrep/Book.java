@@ -20,9 +20,13 @@ public class Book {
     @Column(name = "onHold")
     private Integer onHold;
 
-    public Book(String title, String author) {
+    @Column(name = "bookCategory")
+    private BookCategory bookCategory;
+
+    public Book(String title, String author, BookCategory bookCategory) {
         this.title = title;
         this.author = author;
+        this.bookCategory = bookCategory;
         this.onHold = 0;
     }
 
@@ -56,5 +60,13 @@ public class Book {
 
     public void setOnHold(Integer onHold) {
         this.onHold = onHold;
+    }
+
+    public BookCategory getBookCategory() {
+        return bookCategory;
+    }
+
+    public void setBookCategory(BookCategory bookCategory) {
+        this.bookCategory = bookCategory;
     }
 }
