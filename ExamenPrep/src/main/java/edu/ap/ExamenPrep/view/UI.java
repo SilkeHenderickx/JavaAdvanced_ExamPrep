@@ -37,6 +37,7 @@ public class UI implements InitializingBean {
         LCategory = new JLabel("Category");
         DCategory = new JComboBox(BookCategory.values());
         BAddBook = new JButton("Add Book");
+        BAddBook.addActionListener(eventHandler::whenAddButtonClicked);
         BDeleteBook = new JButton("Delete Book");
 
         jPanelMain.add(LTitle);
@@ -55,6 +56,110 @@ public class UI implements InitializingBean {
         jFrame.pack();
         jFrame.setVisible(true);
 
+    }
+
+    public JFrame getjFrame() {
+        return jFrame;
+    }
+
+    public void setjFrame(JFrame jFrame) {
+        this.jFrame = jFrame;
+    }
+
+    public JPanel getjPanelMain() {
+        return jPanelMain;
+    }
+
+    public void setjPanelMain(JPanel jPanelMain) {
+        this.jPanelMain = jPanelMain;
+    }
+
+    public JPanel getjPanelLeft() {
+        return jPanelLeft;
+    }
+
+    public void setjPanelLeft(JPanel jPanelLeft) {
+        this.jPanelLeft = jPanelLeft;
+    }
+
+    public JPanel getjPanelRight() {
+        return jPanelRight;
+    }
+
+    public void setjPanelRight(JPanel jPanelRight) {
+        this.jPanelRight = jPanelRight;
+    }
+
+    public JTextField getTFTitle() {
+        return TFTitle;
+    }
+
+    public void setTFTitle(JTextField TFTitle) {
+        this.TFTitle = TFTitle;
+    }
+
+    public JTextField getTFAuthor() {
+        return TFAuthor;
+    }
+
+    public void setTFAuthor(JTextField TFAuthor) {
+        this.TFAuthor = TFAuthor;
+    }
+
+    public JLabel getLTitle() {
+        return LTitle;
+    }
+
+    public void setLTitle(JLabel LTitle) {
+        this.LTitle = LTitle;
+    }
+
+    public JLabel getLAuthor() {
+        return LAuthor;
+    }
+
+    public void setLAuthor(JLabel LAuthor) {
+        this.LAuthor = LAuthor;
+    }
+
+    public JLabel getLCategory() {
+        return LCategory;
+    }
+
+    public void setLCategory(JLabel LCategory) {
+        this.LCategory = LCategory;
+    }
+
+    public JComboBox<BookCategory> getDCategory() {
+        return DCategory;
+    }
+
+    public void setDCategory(JComboBox<BookCategory> DCategory) {
+        this.DCategory = DCategory;
+    }
+
+    public JButton getBAddBook() {
+        return BAddBook;
+    }
+
+    public void setBAddBook(JButton BAddBook) {
+        this.BAddBook = BAddBook;
+    }
+
+    public JButton getBDeleteBook() {
+        return BDeleteBook;
+    }
+
+    public void setBDeleteBook(JButton BDeleteBook) {
+        this.BDeleteBook = BDeleteBook;
+    }
+
+    public EventHandler getEventHandler() {
+        return eventHandler;
+    }
+
+    public void setEventHandler(EventHandler eventHandler) {
+        this.eventHandler = eventHandler;
     }
 
     @Override

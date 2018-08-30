@@ -21,12 +21,13 @@ public class Book {
     private Integer onHold;
 
     @Column(name = "bookCategory")
-    private String bookCategory;
+    @Enumerated(EnumType.STRING)
+    private BookCategory bookCategory;
 
     public Book(String title, String author, BookCategory bookCategory) {
         this.title = title;
         this.author = author;
-        this.bookCategory = bookCategory.toString();
+        this.bookCategory = bookCategory;
         this.onHold = 0;
     }
 
@@ -62,12 +63,12 @@ public class Book {
         this.onHold = onHold;
     }
 
-    public String getBookCategory() {
-        return bookCategory.toString();
+    public BookCategory getBookCategory() {
+        return bookCategory;
     }
 
     public void setBookCategory(BookCategory bookCategory) {
-        this.bookCategory = bookCategory.toString();
+        this.bookCategory = bookCategory;
     }
 
     @Override
