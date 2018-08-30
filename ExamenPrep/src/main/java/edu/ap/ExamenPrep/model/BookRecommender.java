@@ -13,15 +13,20 @@ import java.util.stream.StreamSupport;
 @Component
 public class BookRecommender {
 
+    @Autowired
     private BookRepository repository;
 
     @Autowired
-    public void setQuestionRepository(BookRepository repository) {
+    public void setBookRepository(BookRepository repository) {
         this.repository = repository;
     }
 
-    public void AddBook(Book book){
-        repository.save(book);
+    public BookRepository getRepository() {
+        return repository;
+    }
+
+    public void AddBook(String title, String author, BookCategory category){
+        repository.save(new Book(title, author,category));
     }
 
     public void DeleteBook(Book book){
@@ -55,7 +60,7 @@ public class BookRecommender {
         return b;
     }
 
-    public void SetBookOnHold(Book b){
+    private void SetBookOnHold(Book b){
         b.setOnHold(2);
         repository.save(b);
 

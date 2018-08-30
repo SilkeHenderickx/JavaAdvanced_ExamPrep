@@ -16,4 +16,6 @@ public interface BookRepository extends CrudRepository<Book, Long>{
 
     Iterable<Book> findAllByOnHoldGreaterThan(Integer integer);
 
+    Book findByTitle(String name);
+
 }
