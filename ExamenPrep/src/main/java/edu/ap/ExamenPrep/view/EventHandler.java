@@ -1,10 +1,12 @@
 package edu.ap.ExamenPrep.view;
 
 import edu.ap.ExamenPrep.model.BookRecommender;
+import edu.ap.ExamenPrep.persistence.Book;
 import edu.ap.ExamenPrep.persistence.BookCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 @Component
@@ -12,6 +14,7 @@ public class EventHandler {
 
     private UI ui;
     private BookRecommender bookRecommender;
+    private Book book;
 
     @Autowired
     public void setUI(UI ui) {
@@ -39,7 +42,19 @@ public class EventHandler {
     }
 
     public void whenRecommendButtonClicked(ActionEvent actionEvent){
-        
+
+        BookCategory category = null;
+
+        if (ui.jRadioButtonFiction.isSelected()){
+            category = BookCategory.FICTION;
+        }
+        else if (ui.jRadioButtonNonFiction.isSelected()){
+            category = BookCategory.NONFICTION;
+        }
+        Book b = bookRecommender.RecommendBook(category);
+
+        JOptionPane.showMessageDialog(null, b.toString(), "InfoBox: " + "We recommend reading:", JOptionPane.INFORMATION_MESSAGE);
+
     }
 
 }

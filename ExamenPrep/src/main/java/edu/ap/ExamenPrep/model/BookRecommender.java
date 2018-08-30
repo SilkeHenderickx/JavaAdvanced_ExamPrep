@@ -61,7 +61,7 @@ public class BookRecommender {
     }
 
     private void SetBookOnHold(Book b){
-        b.setOnHold(2);
+        b.setOnHold(3);
         repository.save(b);
 
         Iterable<Book> books = repository.findAllByOnHoldGreaterThan(0);
