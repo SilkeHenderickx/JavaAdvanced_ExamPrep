@@ -1,4 +1,4 @@
-package edu.ap.ExamenPrep;
+package edu.ap.ExamenPrep.persistence;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package edu.ap.ExamenPrep;
+package edu.ap.ExamenPrep.persistence;
 
 public enum BookCategory {
 
