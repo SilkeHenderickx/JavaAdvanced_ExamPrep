@@ -38,4 +38,8 @@ public class EventHandler {
         bookRecommender.DeleteBook(title);
     }
 
+    public void whenRecommendButtonClicked(ActionEvent actionEvent){
+        
+    }
+
 }

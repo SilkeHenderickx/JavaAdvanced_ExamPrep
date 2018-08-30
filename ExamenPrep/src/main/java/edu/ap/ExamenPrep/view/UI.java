@@ -16,7 +16,8 @@ public class UI implements InitializingBean {
     JTextField TFTitle, TFAuthor;
     JLabel LTitle, LAuthor,LCategory;
     JComboBox<BookCategory> DCategory;
-    JButton BAddBook, BDeleteBook;
+    JButton BAddBook, BDeleteBook, jButtonGetRecommendation;
+    JRadioButton jRadioButtonFiction,jRadioButtonNonFiction, jRadioButtonAny;
 
     @Autowired
     EventHandler eventHandler;
@@ -28,7 +29,7 @@ public class UI implements InitializingBean {
 
         jPanelMain = new JPanel();
 
-        jPanelMain.setLayout(new GridLayout(3, 3));
+        jPanelMain.setLayout(new GridLayout(0, 3));
 
         LTitle = new JLabel("Title");
         TFTitle = new JTextField(30);
@@ -49,6 +50,29 @@ public class UI implements InitializingBean {
         jPanelMain.add(BDeleteBook);
         jPanelMain.add(LCategory);
         jPanelMain.add(DCategory);
+        jPanelMain.add(new JLabel());
+
+        jPanelMain.add(new JLabel("Get a random book recommended to you."));
+        jPanelMain.add(new JLabel());
+        jPanelMain.add(new JLabel());
+
+        jRadioButtonFiction = new JRadioButton("Fiction");
+        jRadioButtonNonFiction = new JRadioButton("NonFiction");
+        jRadioButtonAny = new JRadioButton("Any Category");
+        ButtonGroup group = new ButtonGroup();
+        group.add(jRadioButtonAny);
+        group.add(jRadioButtonFiction);
+        group.add(jRadioButtonNonFiction);
+
+        jButtonGetRecommendation = new JButton("Get Recommendation");
+        jButtonGetRecommendation.addActionListener(eventHandler::whenRecommendButtonClicked);
+
+        jPanelMain.add(jRadioButtonAny);
+        jPanelMain.add(jRadioButtonFiction);
+        jPanelMain.add(jRadioButtonNonFiction);
+        jRadioButtonAny.setSelected(true);
+
+        jPanelMain.add(jButtonGetRecommendation);
 
         jFrame.add(jPanelMain);
         jFrame.setSize(300, 300);
