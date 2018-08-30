@@ -14,4 +14,6 @@ public interface BookRepository extends CrudRepository<Book, Long>{
 
     int countAllByBookCategory(BookCategory category);
 
+    Iterable<Book> findAllByOnHoldGreaterThan(Integer integer);
+
 }

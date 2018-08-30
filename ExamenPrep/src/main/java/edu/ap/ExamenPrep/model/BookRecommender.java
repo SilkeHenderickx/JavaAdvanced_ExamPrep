@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.StreamSupport;
+
 @Component
 public class BookRecommender {
 
@@ -48,9 +50,19 @@ public class BookRecommender {
             b = bookPage.getContent().get(0);
         }
 
-        //TODO SetBookOnHold(b);
+        SetBookOnHold(b);
 
         return b;
+    }
+
+    public void SetBookOnHold(Book b){
+        b.setOnHold(2);
+        repository.save(b);
+
+        Iterable<Book> books = repository.findAllByOnHoldGreaterThan(0);
+        StreamSupport.stream(books.spliterator(), false).forEach(s ->s.setOnHold(s.getOnHold()-1));
+
+        repository.saveAll(books);
     }
 
 }
