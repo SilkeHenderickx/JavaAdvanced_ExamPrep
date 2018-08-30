@@ -35,19 +35,19 @@ public class BookRecommender {
 
     public Book RecommendBook(BookCategory category){
 
-        long qty;
-        int idx;
+        long qty = 0;
+        int idx = 0;
         Page<Book> bookPage;
 
         if (category == null) {
             qty =repository.count();
             idx = (int)(Math.random() * qty);
-            bookPage = repository.findAll(PageRequest.of(idx, 1));
+            bookPage = repository.findAllByOnHoldEquals(0, PageRequest.of(idx, 1));
         }
         else{
             qty =repository.countAllByBookCategory(category);
             idx = (int)(Math.random() * qty);
-            bookPage = repository.findAllByBookCategory(category,PageRequest.of(idx, 1));
+            bookPage = repository.findAllByBookCategoryAndOnHoldEquals(category, 0,PageRequest.of(idx, 1));
         }
 
         Book b = null;
