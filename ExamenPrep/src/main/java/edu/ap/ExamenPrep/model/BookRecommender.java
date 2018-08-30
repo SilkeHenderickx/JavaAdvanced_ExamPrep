@@ -25,7 +25,7 @@ public class BookRecommender {
         return repository;
     }
 
-    public void AddBook(String title, String author, BookCategory category){
+    public void addBook(String title, String author, BookCategory category){
         repository.save(new Book(title, author,category));
     }
 
@@ -53,9 +53,10 @@ public class BookRecommender {
         Book b = null;
         if (bookPage.hasContent()) {
             b = bookPage.getContent().get(0);
+            SetBookOnHold(b);
         }
 
-        SetBookOnHold(b);
+
 
         return b;
     }
